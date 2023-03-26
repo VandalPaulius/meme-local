@@ -9,7 +9,8 @@
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
-    "lint": "echo \"No linting configured\""
+    "lint": "eslint ./**/*.{js,jsx}",
+    "pretty": "prettier --write ./**/*.{js,jsx}"
   },
   "keywords": [],
   "author": {
@@ -29,7 +30,13 @@
     "babel-loader": "^9.1.2",
     "css-loader": "^6.7.3",
     "electron": "23.2.0",
+    "eslint": "^8.36.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "husky": "^8.0.3",
     "node-loader": "^2.0.0",
+    "prettier": "^2.8.7",
     "style-loader": "^3.3.2"
   },
   "dependencies": {
