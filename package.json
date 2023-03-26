@@ -14,6 +14,9 @@
     "lint": "eslint ./**/*.{js,jsx}",
     "pretty": "prettier --write ./**/*.{js,jsx}"
   },
+  "lint-staged": {
+    "*.{js,jsx}": "npm run pretty && npm run lint"
+  },
   "keywords": [],
   "author": {
     "name": "Vandal Paulius"
