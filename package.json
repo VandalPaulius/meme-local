@@ -15,7 +15,7 @@
     "pretty": "prettier --write ./**/*.{js,jsx}"
   },
   "lint-staged": {
-    "*.{js,jsx}": "npm run pretty && npm run lint"
+    "*.{js,jsx}": ["npm run pretty", "npm run lint"]
   },
   "keywords": [],
   "author": {
@@ -39,7 +39,8 @@
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",
-    "husky": "^8.0.3",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.2.0",
     "node-loader": "^2.0.0",
     "prettier": "^2.8.7",
     "style-loader": "^3.3.2"
