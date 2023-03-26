@@ -5,6 +5,8 @@
   "description": "My Electron application description",
   "main": ".webpack/main",
   "scripts": {
+    "prepare": "husky install",
+    "precommit": "npm run pretty && npm run lint",
     "start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
