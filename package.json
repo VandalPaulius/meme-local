@@ -1,0 +1,15 @@
+{
+  "name": "meme-local",
+  "version": "1.0.0",
+  "description": "MemeLocal - your local meme repo",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vandal Paulius",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^23.2.0"
+  }
+}
