@@ -15,7 +15,10 @@
     "pretty": "prettier --write ./**/*.{js,jsx}"
   },
   "lint-staged": {
-    "*.{js,jsx}": ["npm run pretty", "npm run lint"]
+    "*.{js,jsx}": [
+      "npm run pretty",
+      "npm run lint"
+    ]
   },
   "keywords": [],
   "author": {
@@ -24,6 +27,7 @@
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.21.3",
+    "@babel/preset-env": "^7.20.2",
     "@babel/preset-react": "^7.18.6",
     "@electron-forge/cli": "^6.0.5",
     "@electron-forge/maker-deb": "^6.0.5",
@@ -42,8 +46,15 @@
     "husky": "^8.0.0",
     "lint-staged": "^13.2.0",
     "node-loader": "^2.0.0",
+    "postcss": "^8.4.21",
+    "postcss-loader": "^7.1.0",
+    "postcss-preset-env": "^8.1.0",
     "prettier": "^2.8.7",
-    "style-loader": "^3.3.2"
+    "style-loader": "^3.3.2",
+    "tailwindcss": "^3.2.7",
+    "webpack": "^5.76.3",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.13.1"
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0",
