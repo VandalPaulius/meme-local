@@ -8,6 +8,7 @@
     "prepare": "husky install",
     "precommit": "npm run pretty && npm run lint",
     "start": "electron-forge start",
+    "dev": "nodemon --exec \"electron-forge start\" --watch ./src --ignore src/app",
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
@@ -39,6 +40,7 @@
     "babel-loader": "^9.1.2",
     "css-loader": "^6.7.3",
     "electron": "23.2.0",
+    "electron-reload": "^2.0.0-alpha.1",
     "eslint": "^8.36.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
@@ -46,6 +48,7 @@
     "husky": "^8.0.0",
     "lint-staged": "^13.2.0",
     "node-loader": "^2.0.0",
+    "nodemon": "^2.0.22",
     "postcss": "^8.4.21",
     "postcss-loader": "^7.1.0",
     "postcss-preset-env": "^8.1.0",
@@ -57,6 +60,7 @@
     "webpack-dev-server": "^4.13.1"
   },
   "dependencies": {
+    "dotenv": "^16.0.3",
     "electron-squirrel-startup": "^1.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

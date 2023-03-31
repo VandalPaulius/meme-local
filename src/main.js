@@ -1,6 +1,9 @@
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, screen } = require("electron");
 // eslint-disable-next-line no-unused-vars
 const path = require("path");
+require("dotenv").config();
+
+import { FileOperations } from "./app-backend";
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require("electron-squirrel-startup")) {
@@ -8,27 +11,33 @@ if (require("electron-squirrel-startup")) {
 }
 
 const createWindow = () => {
-  // Create the browser window.
-  const mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+  const displays = screen.getAllDisplays();
+  const externalDisplay = displays.find((display) => {
+    return (
+      display.bounds.x !== 0 || (display.bounds.y !== 0 && !display.internal)
+    );
+  });
+
+  const browserWindowSetup = {
     webPreferences: {
       // eslint-disable-next-line no-undef
       preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,
     },
-  });
+  };
 
-  // and load the index.html of the app.
+  if (process.env.RELOAD_TO_EXTERNAL_DISPLAY && externalDisplay) {
+    browserWindowSetup.x = externalDisplay.bounds.x + 50;
+    browserWindowSetup.y = externalDisplay.bounds.y + 50;
+  }
+
+  // Create the browser window.
+  const mainWindow = new BrowserWindow(browserWindowSetup);
+  mainWindow.maximize();
   // eslint-disable-next-line no-undef
   mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
-
-  // Open the DevTools.
   mainWindow.webContents.openDevTools();
 };
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
 app.on("ready", createWindow);
 
 // Quit when all windows are closed, except on macOS. There, it's common
@@ -48,5 +57,4 @@ app.on("activate", () => {
   }
 });
 
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and import them here.
+FileOperations();
