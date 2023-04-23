@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { TopBarTag } from "./components";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { TopBarTag } from './components';
 
 export const TopBar = ({ tags, onTagClick }) => {
   return (

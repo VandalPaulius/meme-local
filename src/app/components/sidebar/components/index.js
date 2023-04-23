@@ -1,2 +1,2 @@
-export { SettingsButton } from "./settings-button.jsx";
-export { Tag } from "./tag.jsx";
+export { SettingsButton } from './settings-button.jsx';
+export { Tag } from './tag.jsx';

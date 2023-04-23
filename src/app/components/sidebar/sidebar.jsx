@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Tag, SettingsButton } from "./components";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Tag, SettingsButton } from './components';
 
 export function Sidebar({ tags, specialTags, onTagClick, onSpecialTagClick }) {
   return (

@@ -26,5 +26,5 @@
  * ```
  */
 
-import "./index.css";
-import "./index.jsx";
+import './index.css';
+import './index.jsx';

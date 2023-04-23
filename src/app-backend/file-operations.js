@@ -1,7 +1,7 @@
-import { ipcMain, dialog } from "electron";
-import * as fs from "fs";
+import { ipcMain, dialog } from 'electron';
+import * as fs from 'fs';
 
-const settingsFilename = "settings.json";
+const settingsFilename = 'settings.json';
 const settingsFileDirectory = process.cwd();
 
 const loadSettingsFile = async () => {
@@ -24,11 +24,11 @@ const loadSettingsFile = async () => {
 };
 
 const saveSettingsFile = async (payload) => {
-  console.log("saveSettingsFile INSIDE 1");
+  console.log('saveSettingsFile INSIDE 1');
   let result = {};
   if (!payload) {
     result.error = true;
-    result.message = "no payload";
+    result.message = 'no payload';
     return result;
   }
 
@@ -47,12 +47,12 @@ const saveSettingsFile = async (payload) => {
 };
 
 export const FileOperations = () => {
-  ipcMain.handle("settings-file", async (event, data) => {
-    console.log("data: ", data);
+  ipcMain.handle('settings-file', async (event, data) => {
+    console.log('data: ', data);
     let actionResult = {};
 
     if (!data.type) {
-      const msg = "missing settings-file event type";
+      const msg = 'missing settings-file event type';
       console.warn(msg);
       actionResult.error = true;
       actionResult.message = msg;
@@ -61,7 +61,7 @@ export const FileOperations = () => {
     }
 
     switch (data.type) {
-      case "load": {
+      case 'load': {
         const result = await loadSettingsFile();
 
         actionResult = {
@@ -71,9 +71,9 @@ export const FileOperations = () => {
 
         return actionResult;
       }
-      case "save": {
+      case 'save': {
         const result = await saveSettingsFile(data.payload);
-        console.log("saveSettingsFile result", result);
+        console.log('saveSettingsFile result', result);
 
         actionResult = {
           ...actionResult,
@@ -83,7 +83,7 @@ export const FileOperations = () => {
         return actionResult;
       }
       default: {
-        const msg = "not matched settings-file event type";
+        const msg = 'not matched settings-file event type';
         console.warn(msg);
         actionResult.error = true;
         actionResult.message = msg;
@@ -92,12 +92,12 @@ export const FileOperations = () => {
     }
   });
 
-  ipcMain.handle("source-directory", async (event, data) => {
-    console.log("data: ", data);
+  ipcMain.handle('source-directory', async (event, data) => {
+    console.log('data: ', data);
     let actionResult = {};
 
     if (!data.type) {
-      const msg = "missing source-directory event type";
+      const msg = 'missing source-directory event type';
       console.warn(msg);
       actionResult.error = true;
       actionResult.message = msg;
@@ -106,7 +106,7 @@ export const FileOperations = () => {
     }
 
     switch (data.type) {
-      case "select-directory": {
+      case 'select-directory': {
         // const result = await loadSettingsFile()
 
         // actionResult = {
@@ -115,7 +115,7 @@ export const FileOperations = () => {
         // }
 
         const result = await dialog.showOpenDialogSync(null, {
-          properties: ["openDirectory"],
+          properties: ['openDirectory'],
         });
 
         actionResult = {
@@ -124,12 +124,12 @@ export const FileOperations = () => {
           payload: result,
         };
 
-        console.log("result: ", result);
+        console.log('result: ', result);
 
         return actionResult;
       }
       default: {
-        const msg = "not matched source-directory event type";
+        const msg = 'not matched source-directory event type';
         console.warn(msg);
         actionResult.error = true;
         actionResult.message = msg;

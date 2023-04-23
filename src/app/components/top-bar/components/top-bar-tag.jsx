@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 export const TopBarTag = ({ tag, onTagClick, className }) => {
   const onClickHandler = () => onTagClick({ tagKey: tag.tagKey });
@@ -11,7 +11,7 @@ export const TopBarTag = ({ tag, onTagClick, className }) => {
         hover:tw-cursor-pointer
         hover:tw-bg-purple-500
         hover:tw-text-white
-        ${tag.isActive && "tw-bg-purple-400"}
+        ${tag.isActive && 'tw-bg-purple-400'}
         tw-px-1
       `}
       onClick={onClickHandler}

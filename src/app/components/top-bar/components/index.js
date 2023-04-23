@@ -1,1 +1,1 @@
-export { TopBarTag } from "./top-bar-tag.jsx";
+export { TopBarTag } from './top-bar-tag.jsx';

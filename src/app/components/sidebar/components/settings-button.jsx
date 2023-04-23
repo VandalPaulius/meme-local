@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
 export const SettingsButton = () => {
   const onClickSettings = () => {
-    console.log("settings clicked");
+    console.log('settings clicked');
   };
 
   return (

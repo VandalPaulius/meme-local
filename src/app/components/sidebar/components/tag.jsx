@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-export const Tag = ({ tag, onTagClick, prefix = "#" }) => {
+export const Tag = ({ tag, onTagClick, prefix = '#' }) => {
   const onClickHandler = () =>
     onTagClick({
       ...tag,
@@ -14,7 +14,7 @@ export const Tag = ({ tag, onTagClick, prefix = "#" }) => {
         hover:tw-cursor-pointer
         hover:tw-bg-purple-500
         hover:tw-text-white
-        ${tag.isActive && "tw-bg-purple-200"}
+        ${tag.isActive && 'tw-bg-purple-200'}
         tw-px-1
       `}
       onClick={onClickHandler}
